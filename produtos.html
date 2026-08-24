@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Produtos — Rarity</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="announce">FRETE GRÁTIS ACIMA DE R$ 299 · 3X SEM JUROS EM TODO O SITE</div>
+
+<header>
+  <div class="nav-wrap">
+    <a href="index.html" class="site-logo">
+      <img src="assets/img/logo-rarity.svg" alt="Rarity">
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Início</a></li>
+      <li class="has-dropdown active">
+        <a href="produtos.html">Produtos</a>
+        <ul class="dropdown">
+          <li><a href="produtos.html?cat=vestidos">Vestidos</a></li>
+          <li class="has-submenu">
+            <a href="produtos.html?cat=blusas">Blusas</a>
+            <ul class="submenu">
+              <li><a href="produtos.html?cat=blusas&amp;sub=basica">Blusa Básica</a></li>
+              <li><a href="produtos.html?cat=blusas&amp;sub=cigana">Blusa Cigana</a></li>
+              <li><a href="produtos.html?cat=blusas&amp;sub=manga-3-4">Blusa Manga 3/4</a></li>
+              <li><a href="produtos.html?cat=blusas&amp;sub=manga-longa">Blusa Manga Longa</a></li>
+            </ul>
+          </li>
+          <li><a href="produtos.html?cat=calcas">Calças</a></li>
+          <li class="has-submenu">
+            <a href="produtos.html?cat=saias">Saias</a>
+            <ul class="submenu">
+              <li><a href="produtos.html?cat=saias&amp;sub=longa">Saia Longa</a></li>
+              <li><a href="produtos.html?cat=saias&amp;sub=assimetrica">Saia Assimétrica</a></li>
+            </ul>
+          </li>
+          <li><a href="produtos.html?cat=conjuntos">Conjuntos</a></li>
+          <li><a href="produtos.html?cat=acessorios">Acessórios</a></li>
+        </ul>
+      </li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+
+    <div class="nav-icons">
+      <button class="icon-search" aria-label="Buscar">&#128269;</button>
+      <a href="#" class="icon-account" aria-label="Conta">&#128100;</a>
+      <a href="#" aria-label="Carrinho">&#128717;<span class="cart-count">0</span></a>
+      <button class="burger" aria-label="Menu">&#9776;</button>
+    </div>
+  </div>
+</header>
+
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-box">
+    <button class="search-close" aria-label="Fechar busca">&times;</button>
+    <form class="search-form" id="searchForm">
+      <input type="text" id="searchInput" placeholder="Buscar produtos, categorias ou subcategorias..." autocomplete="off">
+      <button type="submit">Buscar</button>
+    </form>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</div>
+
+<div class="page-banner">
+  <div class="container">
+    <h1>Todos os Produtos</h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="breadcrumb">
+    <a href="index.html">Início</a> / <span>Produtos</span>
+  </div>
+</div>
+
+<div class="container">
+  <div class="shop-layout">
+
+    <aside class="sidebar">
+
+      <div class="filter-block">
+        <h4>Subcategorias</h4>
+        <label><input type="checkbox"> Vestidos</label>
+        <label><input type="checkbox"> Blusas</label>
+        <label class="sub-check"><input type="checkbox"> Blusa Básica</label>
+        <label class="sub-check"><input type="checkbox"> Blusa Cigana</label>
+        <label class="sub-check"><input type="checkbox"> Blusa Manga 3/4</label>
+        <label class="sub-check"><input type="checkbox"> Blusa Manga Longa</label>
+        <label><input type="checkbox"> Calças</label>
+        <label><input type="checkbox"> Saias</label>
+        <label class="sub-check"><input type="checkbox"> Saia Longa</label>
+        <label class="sub-check"><input type="checkbox"> Saia Assimétrica</label>
+        <label><input type="checkbox"> Conjuntos</label>
+        <label><input type="checkbox"> Acessórios</label>
+      </div>
+
+      <div class="filter-block">
+        <h4>Tamanho</h4>
+        <div class="size-grid">
+          <span>PP</span><span>P</span><span>M</span><span>G</span><span>GG</span>
+        </div>
+      </div>
+
+      <div class="filter-block">
+        <h4>Faixa de Preço</h4>
+        <label><input type="checkbox"> Até R$ 100</label>
+        <label><input type="checkbox"> R$ 100 – R$ 200</label>
+        <label><input type="checkbox"> R$ 200 – R$ 300</label>
+        <label><input type="checkbox"> Acima de R$ 300</label>
+      </div>
+
+      <div class="filter-block">
+        <h4>Cor</h4>
+        <label><input type="checkbox"> Rosa</label>
+        <label><input type="checkbox"> Branco</label>
+        <label><input type="checkbox"> Preto</label>
+        <label><input type="checkbox"> Bege</label>
+      </div>
+
+      <button class="btn btn-block">Aplicar Filtros</button>
+    </aside>
+
+    <div class="shop-main">
+
+      <div class="shop-toolbar">
+        <span>Exibindo 1–8 de 24 produtos</span>
+        <select>
+          <option>Ordenar: Relevância</option>
+          <option>Menor Preço</option>
+          <option>Maior Preço</option>
+          <option>Lançamentos</option>
+        </select>
+      </div>
+
+      <div class="product-grid">
+
+        <a href="produto.html" class="product-card">
+          <div class="product-thumb"><span class="product-tag">Novo</span>Foto do Produto<div class="product-quick">Adicionar ao Carrinho</div></div>
+          <div class="product-info"><div class="product-cat">Vestidos</div><div class="product-name">Vestido Midi Floral</div><div class="product-price">R$ 249,90</div></div>
+        </a>
+
+        <a href="produto.html" class="product-card">
+          <div class="product-thumb">Foto do Produto<div class="product-quick">Adicionar ao Carrinho</div></div>
+          <div class="product-info"><div class="product-cat">Blusas · Blusa Básica</div><div class="product-name">Blusa Cropped Canelada</div><div class="product-price"><span class="price-old">R$ 129,90</span>R$ 99,90</div></div>
+        </a>
+
+        <a href="produto.html" class="product-card">
+          <div class="product-thumb"><span class="product-tag">Novo</span>Foto do Produto<div class="product-quick">Adicionar ao Carrinho</div></div>
+          <div class="product-info"><div class="product-cat">Blusas · Blusa Cigana</div><div class="product-name">Blusa Cigana Estampada</div><div class="product-price">R$ 119,90</div></div>
+        </a>
+
+        <a href="produto.html" class="product-card">
+          <div class="product-thumb">Foto do Produto<div class="product-quick">Adicionar ao Carrinho</div></div>
+          <div class="product-info"><div class="product-cat">Blusas · Blusa Manga 3/4</div><div class="product-name">Blusa Manga 3/4 Listrada</div><div class="product-price">R$ 109,90</div></div>
+        </a>
+
+        <a href="produto.html" class="product-card">
+          <div class="product-thumb">Foto do Produto<div class="product-quick">Adicionar ao Carrinho</div></div>
+          <div class="product-info"><div class="product-cat">Calças</div><div class="product-name">Calça Wide Leg Alfaiataria</div><div class="product-price">R$ 219,90</div></div>
+        </a>
+
+        <a href="produto.html" class="product-card">
+          <div class="product-thumb"><span class="product-tag">Novo</span>Foto do Produto<div class="product-quick">Adicionar ao Carrinho</div></div>
+          <div class="product-info"><div class="product-cat">Conjuntos</div><div class="product-name">Conjunto Linho Bicolor</div><div class="product-price">R$ 279,90</div></div>
+        </a>
+
+        <a href="produto.html" class="product-card">
+          <div class="product-thumb">Foto do Produto<div class="product-quick">Adicionar ao Carrinho</div></div>
+          <div class="product-info"><div class="product-cat">Saias · Saia Longa</div><div class="product-name">Saia Longa Plissada</div><div class="product-price">R$ 179,90</div></div>
+        </a>
+
+        <a href="produto.html" class="product-card">
+          <div class="product-thumb"><span class="product-tag">Novo</span>Foto do Produto<div class="product-quick">Adicionar ao Carrinho</div></div>
+          <div class="product-info"><div class="product-cat">Saias · Saia Assimétrica</div><div class="product-name">Saia Assimétrica Fenda</div><div class="product-price">R$ 199,90</div></div>
+        </a>
+
+        <a href="produto.html" class="product-card">
+          <div class="product-thumb">Foto do Produto<div class="product-quick">Adicionar ao Carrinho</div></div>
+          <div class="product-info"><div class="product-cat">Acessórios</div><div class="product-name">Bolsa Tiracolo Couro Sintético</div><div class="product-price">R$ 159,90</div></div>
+        </a>
+
+        <a href="produto.html" class="product-card">
+          <div class="product-thumb">Foto do Produto<div class="product-quick">Adicionar ao Carrinho</div></div>
+          <div class="product-info"><div class="product-cat">Vestidos</div><div class="product-name">Vestido Longo Alças</div><div class="product-price">R$ 289,90</div></div>
+        </a>
+
+        <a href="produto.html" class="product-card">
+          <div class="product-thumb"><span class="product-tag">Novo</span>Foto do Produto<div class="product-quick">Adicionar ao Carrinho</div></div>
+          <div class="product-info"><div class="product-cat">Blusas · Blusa Manga Longa</div><div class="product-name">Blusa Manga Longa Gola Alta</div><div class="product-price">R$ 89,90</div></div>
+        </a>
+
+      </div>
+
+      <div class="pagination">
+        <a href="#" class="active">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">&rarr;</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo"><img src="assets/img/logo-rarity.svg" alt="Rarity"></div>
+        <p>Moda feminina minimalista, com peças atemporais para o seu dia a dia.</p>
+        <div class="social">
+          <a href="#">Instagram</a>
+          <a href="#">TikTok</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Institucional</h4>
+        <ul>
+          <li><a href="sobre.html">Sobre a Rarity</a></li>
+          <li><a href="contato.html">Contato</a></li>
+          <li><a href="#">Trocas e Devoluções</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Categorias</h4>
+        <ul>
+          <li><a href="produtos.html?cat=vestidos">Vestidos</a></li>
+          <li><a href="produtos.html?cat=blusas">Blusas</a></li>
+          <li><a href="produtos.html?cat=calcas">Calças</a></li>
+          <li><a href="produtos.html?cat=acessorios">Acessórios</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <p>atendimento@rarity.com.br</p>
+        <p>(11) 0000-0000</p>
+        <p>Seg a Sex, 9h às 18h</p>
+      </div>
+    </div>
+
+    <div class="payment-strip">
+      <div class="payment-info">
+        <div class="payment-row">
+          <h4>Meios de pagamento</h4>
+          <div class="payment-badges">
+            <span class="brand-badge visa">VISA</span>
+            <span class="brand-badge mastercard">
+              <svg width="26" height="16" viewBox="0 0 26 16" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="9" cy="8" r="8" fill="#EB001B"/>
+                <circle cx="17" cy="8" r="8" fill="#F79E1B" opacity="0.85"/>
+              </svg>
+            </span>
+            <span class="brand-badge amex">AMEX</span>
+            <span class="brand-badge diners">
+              <svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="7" cy="7" r="6" fill="none" stroke="#fff" stroke-width="1.3"/>
+                <line x1="7" y1="1.5" x2="7" y2="12.5" stroke="#fff" stroke-width="1.3"/>
+              </svg>
+              Diners
+            </span>
+            <span class="brand-badge aura">aura</span>
+            <span class="brand-badge bradesco">Bradesco</span>
+            <span class="brand-badge elo">
+              <svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="3.5" cy="7" r="3" fill="#FFCB05"/>
+                <circle cx="7" cy="7" r="3" fill="#00A4E0" opacity="0.9"/>
+                <circle cx="10.5" cy="7" r="3" fill="#EF4123" opacity="0.9"/>
+              </svg>
+              elo
+            </span>
+            <span class="brand-badge hiper">hiper</span>
+            <span class="brand-badge hipercard">Hipercard</span>
+            <span class="brand-badge discover">
+              <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="6" cy="6" r="6" fill="#F58220"/>
+              </svg>
+              Discover
+            </span>
+            <span class="brand-badge santander">Santander</span>
+            <span class="brand-badge pix">
+              <svg width="13" height="13" viewBox="0 0 13 13" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="9" height="9" rx="2.5" transform="rotate(45 6.5 6.5)" fill="none" stroke="#2CB9A6" stroke-width="1.5"/>
+              </svg>
+              Pix
+            </span>
+            <span class="brand-badge boleto">
+              <svg width="15" height="13" viewBox="0 0 15 13" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0" y="0" width="1.4" height="13" fill="#333"/>
+                <rect x="2.6" y="0" width="0.9" height="13" fill="#333"/>
+                <rect x="4.5" y="0" width="1.8" height="13" fill="#333"/>
+                <rect x="7.7" y="0" width="0.9" height="13" fill="#333"/>
+                <rect x="9.6" y="0" width="1.4" height="13" fill="#333"/>
+                <rect x="12" y="0" width="0.9" height="13" fill="#333"/>
+              </svg>
+              Boleto
+            </span>
+          </div>
+        </div>
+        <div class="payment-row">
+          <h4>Meios de envio</h4>
+          <div class="payment-badges">
+            <span class="brand-badge">Melhor Envio</span>
+            <span class="brand-badge">Nuvem Envio</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="security-badge">
+        <svg width="42" height="48" viewBox="0 0 42 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21 2 L39 9 V22 C39 34 31 43 21 46 C11 43 3 34 3 22 V9 Z" fill="#3CAE4C"/>
+          <path d="M13 24 L19 30 L30 17" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <div class="sec-text">
+          <p>Compra Segura</p>
+          <strong>Site Protegido</strong>
+          <p>Certificado SSL</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Rarity. Todos os direitos reservados.</span>
+      <span>Esboço de layout — em desenvolvimento</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/products.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
