@@ -38,32 +38,13 @@ function rarityRenderResultRow(p) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const overlay = document.getElementById('searchOverlay');
-  const openBtn = document.querySelector('.icon-search');
-  const closeBtn = document.querySelector('.search-close');
+  const searchWrap = document.querySelector('.header-search');
   const input = document.getElementById('searchInput');
   const form = document.getElementById('searchForm');
   const resultsBox = document.getElementById('searchResults');
 
-  function openSearch() {
-    overlay.classList.add('open');
-    setTimeout(() => input.focus(), 50);
-  }
-  function closeSearch() {
-    overlay.classList.remove('open');
-  }
-
-  if (openBtn && overlay) {
-    openBtn.addEventListener('click', openSearch);
-    closeBtn.addEventListener('click', closeSearch);
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) closeSearch();
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeSearch();
-    });
-
-    input.addEventListener('input', () => {
+  if (searchWrap && input && form && resultsBox) {
+    function renderMatches() {
       const term = input.value.trim();
       if (!term) {
         resultsBox.innerHTML = "";
@@ -73,6 +54,19 @@ document.addEventListener('DOMContentLoaded', () => {
       resultsBox.innerHTML = matches.length
         ? matches.map(rarityRenderResultRow).join("")
         : '<div class="search-empty">Nenhum produto, categoria ou subcategoria encontrado para "' + term + '".</div>';
+    }
+
+    input.addEventListener('input', renderMatches);
+    input.addEventListener('focus', renderMatches);
+
+    document.addEventListener('click', (e) => {
+      if (!searchWrap.contains(e.target)) resultsBox.innerHTML = "";
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        resultsBox.innerHTML = "";
+        input.blur();
+      }
     });
 
     form.addEventListener('submit', (e) => {

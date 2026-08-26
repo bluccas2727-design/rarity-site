@@ -2,6 +2,27 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // Aviso contínuo: repete o conteúdo o suficiente para nunca deixar lacunas.
+  document.querySelectorAll('.announce').forEach(announce => {
+    const track = announce.querySelector('.announce-track');
+    const item = track?.firstElementChild;
+    if (!track || !item) return;
+
+    const fillTrack = () => {
+      const itemWidth = item.getBoundingClientRect().width;
+      if (!itemWidth) return;
+
+      track.style.setProperty('--announce-shift', `${itemWidth}px`);
+      while (track.scrollWidth < announce.clientWidth + itemWidth) {
+        track.appendChild(item.cloneNode(true));
+      }
+    };
+
+    fillTrack();
+    document.fonts?.ready.then(fillTrack);
+    new ResizeObserver(fillTrack).observe(announce);
+  });
+
   // Menu mobile
   const burger = document.querySelector('.burger');
   const navLinks = document.querySelector('.nav-links');
