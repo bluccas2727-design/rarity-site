@@ -2,6 +2,18 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // Carrossel principal: a cópia automática cria a emenda contínua do loop.
+  const heroCarousel = document.querySelector('.hero-carousel');
+  const heroTrack = heroCarousel?.querySelector('.hero-carousel-track');
+  const heroGroup = heroTrack?.querySelector('.hero-carousel-group');
+  if (heroCarousel && heroTrack && heroGroup && heroTrack.children.length === 1) {
+    const clone = heroGroup.cloneNode(true);
+    clone.classList.add('is-clone');
+    clone.setAttribute('aria-hidden', 'true');
+    heroTrack.appendChild(clone);
+    requestAnimationFrame(() => heroCarousel.classList.add('is-ready'));
+  }
+
   // Aviso contínuo: repete o conteúdo o suficiente para nunca deixar lacunas.
   document.querySelectorAll('.announce').forEach(announce => {
     const track = announce.querySelector('.announce-track');

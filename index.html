@@ -10,7 +10,7 @@
 <link rel="icon" href="assets/img/favicon-192x192.png" type="image/png" sizes="192x192">
 <link rel="icon" href="assets/img/favicon-512x512.png" type="image/png" sizes="512x512">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" sizes="180x180">
-<link rel="stylesheet" href="assets/css/style.css?v=continuous-announce">
+<link rel="stylesheet" href="assets/css/style.css?v=size-filter-1">
 </head>
 <body>
 
@@ -86,7 +86,13 @@
               <li><a href="produtos.html?cat=saias&amp;sub=assimetrica">Saia Assimétrica</a></li>
             </ul>
           </li>
-          <li><a href="produtos.html?cat=conjuntos">Conjuntos</a></li>
+          <li class="has-submenu">
+            <a href="produtos.html?cat=conjuntos">Conjuntos</a>
+            <ul class="submenu">
+              <li><a href="produtos.html?cat=conjuntos&amp;sub=conjunto-longo">Conjunto Longo</a></li>
+              <li><a href="produtos.html?cat=conjuntos&amp;sub=conjunto-assimetrico">Conjunto Assimétrico</a></li>
+            </ul>
+          </li>
           <li><a href="produtos.html?cat=acessorios">Acessórios</a></li>
         </ul>
       </li>
@@ -96,15 +102,41 @@
   </nav>
 </header>
 
-<section class="hero">
-  <div class="container">
+<!--
+  CARROSSEL PRINCIPAL
+  Para inserir as imagens definitivas, substitua cada "none" abaixo por:
+  url('assets/img/hero-imagem-1.jpg'), url('assets/img/hero-imagem-2.jpg') etc.
+-->
+<section class="hero hero-carousel" style="
+  --hero-image-1: none;
+  --hero-image-2: none;
+  --hero-image-3: none;
+  --hero-image-4: none;
+">
+  <div class="hero-carousel-viewport" aria-hidden="true">
+    <div class="hero-carousel-track">
+      <div class="hero-carousel-group">
+        <!-- IMAGEM 1: assets/img/hero-imagem-1.jpg -->
+        <div class="hero-carousel-item" style="--hero-image: var(--hero-image-1)"><span>IMAGEM 1</span></div>
+        <!-- IMAGEM 2: assets/img/hero-imagem-2.jpg -->
+        <div class="hero-carousel-item" style="--hero-image: var(--hero-image-2)"><span>IMAGEM 2</span></div>
+        <!-- IMAGEM 3: assets/img/hero-imagem-3.jpg -->
+        <div class="hero-carousel-item" style="--hero-image: var(--hero-image-3)"><span>IMAGEM 3</span></div>
+        <!-- IMAGEM 4: assets/img/hero-imagem-4.jpg -->
+        <div class="hero-carousel-item" style="--hero-image: var(--hero-image-4)"><span>IMAGEM 4</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-carousel-shade" aria-hidden="true"></div>
+
+  <div class="container hero-content-layer">
     <div class="hero-content">
       <span class="eyebrow">Nova Coleção · Primavera</span>
       <h1>Elegância em cada detalhe</h1>
       <p>Peças atemporais pensadas para a mulher moderna. Design minimalista, caimento perfeito e conforto no dia a dia.</p>
       <a href="produtos.html" class="btn btn-primary">Ver Coleção</a>
     </div>
-    <div class="hero-visual"></div>
   </div>
 </section>
 
@@ -328,6 +360,6 @@
 
 <script src="assets/js/products.js"></script>
 <script src="assets/js/search.js"></script>
-<script src="assets/js/main.js?v=continuous-announce"></script>
+<script src="assets/js/main.js?v=hero-carousel-2"></script>
 </body>
 </html>

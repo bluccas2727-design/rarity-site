@@ -77,11 +77,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Página de listagem: renderiza resultados quando existe ?q= na URL.
+  // Página de listagem: renderiza resultados quando existe ?q=, ?cat= ou ?sub= na URL.
   const grid = document.querySelector('.shop-main .product-grid');
   if (grid) {
     const params = new URLSearchParams(window.location.search);
     const q = params.get('q');
+    const cat = params.get('cat');
+    const sub = params.get('sub');
     if (q) {
       if (input) input.value = q;
       const matches = raritySearch(q);
@@ -99,6 +101,49 @@ document.addEventListener('DOMContentLoaded', () => {
       grid.innerHTML = matches.length
         ? matches.map(rarityRenderCard).join("")
         : '<div class="products-empty"><strong>Nenhum produto encontrado</strong>Tente buscar por outro nome, categoria ou subcategoria.</div>';
+
+      const pagination = document.querySelector('.pagination');
+      if (pagination) pagination.style.display = 'none';
+    } else if (cat || sub) {
+      const catLabel = rarityCategoryLabel(cat);
+      const subLabel = raritySubcategoryLabel(cat, sub);
+      const matches = rarityFilter(cat, sub);
+      const heading = subLabel || catLabel || 'Produtos';
+
+      const banner = document.querySelector('.page-banner h1');
+      if (banner) banner.textContent = heading;
+
+      const crumb = document.querySelector('.breadcrumb');
+      if (crumb && (catLabel || subLabel)) {
+        let html = '<a href="index.html">Início</a> / <a href="produtos.html">Produtos</a> / ';
+        if (subLabel) {
+          html += '<a href="produtos.html?cat=' + encodeURIComponent(cat) + '">' + catLabel + '</a> / <span>' + subLabel + '</span>';
+        } else {
+          html += '<span>' + catLabel + '</span>';
+        }
+        crumb.innerHTML = html;
+      }
+
+      const toolbar = document.querySelector('.shop-toolbar span');
+      if (toolbar) {
+        toolbar.textContent = matches.length === 1
+          ? '1 produto'
+          : matches.length + ' produtos';
+      }
+
+      const summary = document.createElement('div');
+      summary.className = 'search-summary';
+      summary.innerHTML =
+        '<span>' + (subLabel ? 'Subcategoria' : 'Categoria') + ': <strong>' + heading + '</strong></span>' +
+        '<a href="produtos.html">Ver todos os produtos</a>';
+      grid.parentElement.insertBefore(summary, grid);
+
+      const emptyMsg = subLabel
+        ? 'Ainda não há produtos cadastrados nesta subcategoria.'
+        : 'Ainda não há produtos cadastrados nesta categoria.';
+      grid.innerHTML = matches.length
+        ? matches.map(rarityRenderCard).join("")
+        : '<div class="products-empty"><strong>Nenhum produto por aqui ainda</strong>' + emptyMsg + '</div>';
 
       const pagination = document.querySelector('.pagination');
       if (pagination) pagination.style.display = 'none';
